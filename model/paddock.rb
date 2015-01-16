@@ -16,4 +16,12 @@ class Paddock
     end
   end
 
+  def helicopter_view
+    str = ""
+    @dogs.each do |dog|
+      str += "#{dog.x} #{dog.y} #{dog.orientation}\n"
+    end
+    return str
+  end
+
 end

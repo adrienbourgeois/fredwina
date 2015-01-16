@@ -47,7 +47,7 @@ RSpec.describe 'paddock' do
     it { expect(subject).to respond_to(:helicopter_view) }
 
     it 'returns the helicopter_view' do
-      expect(subject.helicopter_view).to eq("1 1 N\n4 4 W")
+      expect(subject.helicopter_view).to eq("1 1 N\n4 4 W\n")
     end
   end
 end
