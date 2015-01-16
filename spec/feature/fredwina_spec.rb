@@ -1,3 +1,5 @@
+require_relative '../../config'
+
 RSpec.describe 'fredwina' do
   context "dogs stay inside the paddock and don't bump into each other" do
     it "returns the final positions of the dogs" do
