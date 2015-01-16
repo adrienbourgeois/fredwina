@@ -9,8 +9,8 @@ RSpec.describe 'dog' do
 
     it 'moves the dog to the right coord' do
       subject.move
-      expect(subject.x).to eq(2)
-      expect(subject.y).to eq(2)
+      expect(subject.x).to eq(1)
+      expect(subject.y).to eq(3)
       expect(subject.orientation).to eq('N')
     end
   end
