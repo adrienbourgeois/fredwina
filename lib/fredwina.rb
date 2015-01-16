@@ -3,6 +3,7 @@ module Fredwina
     f = File.open(file_name)
     parser = Parser.new(f)
     paddock = Paddock.new(parser.paddock_coord,parser.dogs)
-    return Paddock.final_dogs_positions
+    paddock.execute_orders(parser.orders)
+    return paddock.helicopter_view
   end
 end
