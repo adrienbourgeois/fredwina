@@ -38,4 +38,16 @@ RSpec.describe 'paddock' do
       subject.execute_orders(orders)
     end
   end
+
+  describe '#helicopter_view' do
+    let(:dog1) { Dog.new([1,1,'N']) }
+    let(:dog2) { Dog.new([4,4,'W']) }
+    subject { Paddock.new([5,5],[dog1,dog2]) }
+
+    it { expect(subject).to respond_to(:helicopter_view) }
+
+    it 'returns the helicopter_view' do
+      expect(subject.helicopter_view).to eq("1 1 N\n4 4 W")
+    end
+  end
 end
