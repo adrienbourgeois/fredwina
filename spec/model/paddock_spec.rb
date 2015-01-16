@@ -19,4 +19,23 @@ RSpec.describe 'paddock' do
       end
     end
   end
+
+  describe '#execute_orders' do
+    let(:dog1) { Dog.new([1,1,'N']) }
+    let(:dog2) { Dog.new([4,4,'W']) }
+    let(:orders) do
+      [
+        ['M','M']
+      ]
+    end
+    subject { Paddock.new([5,5],[dog1,dog2]) }
+
+    it { expect(subject).to respond_to(:execute_orders) }
+
+    it 'gives the orders to the dogs' do
+      expect(subject).to receive(:give_order_to).with(0,'M')
+      expect(subject).to receive(:give_order_to).with(1,'M')
+      subject.execute_orders(orders)
+    end
+  end
 end
