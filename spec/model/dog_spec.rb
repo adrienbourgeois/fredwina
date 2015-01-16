@@ -35,4 +35,22 @@ RSpec.describe 'dog' do
       end
     end
   end
+
+  describe 'execute' do
+    subject { Dog.new([1,2,'N']) }
+
+    context 'with M' do
+      it 'calls move' do
+        expect(subject).to receive(:move)
+        subject.execute('M')
+      end
+    end
+
+    context 'otherwise' do
+      it 'calls turn' do
+        expect(subject).to receive(:turn).with('L')
+        subject.execute('L')
+      end
+    end
+  end
 end

@@ -34,4 +34,10 @@ class Dog
     end
   end
 
+  def execute(order)
+    if order == 'M' then self.move
+    else self.turn(order)
+    end
+  end
+
 end
