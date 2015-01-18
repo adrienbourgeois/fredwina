@@ -30,4 +30,16 @@ RSpec.describe 'Position' do
       it { expect(subject.equal?(position2)).to be(false) }
     end
   end
+
+  describe '#move' do
+    let(:direction) { Direction.new('N') }
+
+    it { expect(subject).to respond_to(:move) }
+
+    it 'changes the position according to the direction' do
+      subject.move(direction)
+      expect(subject.x).to eq(1)
+      expect(subject.y).to eq(3)
+    end
+  end
 end
