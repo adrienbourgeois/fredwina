@@ -14,6 +14,14 @@ class Position
     @x == position.x && @y == position.y
   end
 
+  def >(position)
+    if @x > position.x || @y > position.y
+      return true
+    else
+      return false
+    end
+  end
+
   def move
     if @direction.north? then @y += 1
     elsif @direction.south? then @y -= 1

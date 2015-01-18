@@ -54,6 +54,16 @@ RSpec.describe 'Position' do
     end
   end
 
+  describe '#>' do
+    subject { Position.new([1,2]) }
+
+    it { expect(subject).to respond_to(:>) }
+
+    it 'returns true if one of the two coord is greater' do
+      expect(subject > Position.new([1,1])).to be(true)
+    end
+  end
+
   describe '#move' do
     it { expect(subject).to respond_to(:move) }
 
