@@ -1,6 +1,12 @@
 class Paddock
   def initialize(paddock_coord,dogs)
     @paddock_coord = paddock_coord
+    @dogs = []
+    dogs.each do |dog|
+      raise "Dogs initial position have to be inside the paddock" if self.out_of_bound?([dog.x,dog.y])
+      raise "Dogs cannot have the same initial position" unless self.free?([dog.x,dog.y])
+      @dogs << dog 
+    end
     @dogs = dogs
   end
 

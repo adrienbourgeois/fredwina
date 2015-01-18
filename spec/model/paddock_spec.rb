@@ -1,6 +1,25 @@
 require_relative '../../config'
 
 RSpec.describe 'paddock' do
+  describe 'initialization' do
+    subject { Paddock }
+
+    context 'when a dog initial position is outside of the paddock' do
+      let(:dog) { Dog.new([6,6,'N']) }
+      it 'raises an error' do
+        expect{ subject.new([5,5],[dog]) }.to raise_error("Dogs initial position have to be inside the paddock")
+      end
+    end
+
+    context 'when at least two dogs have the same initial position' do
+      let(:dog1) { Dog.new([3,3,'N']) }
+      let(:dog2) { Dog.new([3,3,'N']) }
+      it 'raises an error' do
+        expect{ subject.new([5,5],[dog1,dog2]) }.to raise_error("Dogs cannot have the same initial position")
+      end
+    end
+  end
+
   describe '#give_order_to' do
     let(:dog) { Dog.new([1,1,'N']) }
     subject { Paddock.new([5,5],[dog]) }
