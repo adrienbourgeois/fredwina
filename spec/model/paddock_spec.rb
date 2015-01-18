@@ -66,4 +66,18 @@ RSpec.describe 'paddock' do
       it { expect(subject.free?([1,1])).to eq(false) }
     end
   end
+
+  describe '#out_of_bound?' do
+    subject { Paddock.new([5,5],[]) }
+
+    it { expect(subject).to respond_to(:out_of_bound?) }
+
+    context 'when coord is inside the paddock' do
+      it { expect(subject.out_of_bound?([2,2])).to eq(false) }
+    end
+
+    context 'when coord is outside the paddock' do
+      it { expect(subject.out_of_bound?([6,2])).to eq(true) }
+    end
+  end
 end
