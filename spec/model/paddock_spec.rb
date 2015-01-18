@@ -50,4 +50,20 @@ RSpec.describe 'paddock' do
       expect(subject.helicopter_view).to eq("1 1 N\n4 4 W\n")
     end
   end
+
+  describe '#free?' do
+    let(:dog1) { Dog.new([1,1,'N']) }
+    let(:dog2) { Dog.new([4,4,'W']) }
+    subject { Paddock.new([5,5],[dog1,dog2]) }
+
+    it { expect(subject).to respond_to(:free?) }
+
+    context 'there is no dog at that position' do
+      it { expect(subject.free?([2,2])).to eq(true) }
+    end
+
+    context 'there is a dog at that position' do
+      it { expect(subject.free?([1,1])).to eq(false) }
+    end
+  end
 end

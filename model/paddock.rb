@@ -24,4 +24,11 @@ class Paddock
     return str
   end
 
+  def free?(coord)
+    @dogs.each do |dog|
+      return false if dog.x == coord[0] && dog.y == coord[1]
+    end
+    return true
+  end
+
 end
