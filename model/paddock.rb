@@ -5,7 +5,7 @@ class Paddock
   end
 
   def give_order_to(dog_id,order)
-    @dogs[dog_id].execute(order)
+    @dogs[dog_id].execute(self,order)
   end
 
   def execute_orders(orders)

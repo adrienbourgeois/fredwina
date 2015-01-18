@@ -14,7 +14,7 @@ RSpec.describe 'paddock' do
 
     context 'when the dog exist' do
       it 'calls execute on the dog' do
-        expect(dog).to receive(:execute).with('M')
+        expect(dog).to receive(:execute).with(subject,'M')
         subject.give_order_to(0,'M')
       end
     end
