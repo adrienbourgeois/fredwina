@@ -10,7 +10,7 @@ class Position
     end
   end
 
-  def equal?(position)
+  def ==(position)
     @x == position.x && @y == position.y
   end
 
