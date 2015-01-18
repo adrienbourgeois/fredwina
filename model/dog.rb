@@ -26,16 +26,27 @@ class Dog
   end
 
   def move
+    x = @x
+    y = @y
     case @orientation
-    when 'N' then @y += 1
-    when 'S' then @y -= 1
-    when 'E' then @x += 1
-    when 'W' then @x -= 1
+    when 'N' then y += 1
+    when 'S' then y -= 1
+    when 'E' then x += 1
+    when 'W' then x -= 1
     end
+    return [x,y]
   end
 
-  def execute(order)
-    if order == 'M' then self.move
+  def move!(paddock)
+    new_coord = self.move
+    raise "Dogs has to stay inside of the paddock" if paddock.out_of_bound?(new_coord)
+    raise "Dogs cannot bump into each other" unless paddock.free?(new_coord)
+    @x = new_coord[0]
+    @y = new_coord[1]
+  end
+
+  def execute(paddock,order)
+    if order == 'M' then self.move!(paddock)
     else self.turn(order)
     end
   end
