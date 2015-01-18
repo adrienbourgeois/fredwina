@@ -31,12 +31,15 @@ To implement my solution, I've followed the TDD and BDD practices.
 
 Both unit testing and feature/integration testing have been implemented. To run all the test, simply type:
 
-    rake
-
+```
+rake
+```
 
 Execution
 ---------
 
 To execute the program with one of the example file of the specs, type:
 
-    FILE_NAME=spec/fixtures/input_example_success.txt rake fredwina
+```
+FILE_NAME=spec/fixtures/input_example_success.txt rake fredwina
+```
