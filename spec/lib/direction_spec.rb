@@ -1,6 +1,15 @@
 require_relative '../../config'
 
 RSpec.describe 'Direction' do
+  describe 'initialization' do
+    context 'with an invalid cardinal point' do
+      subject { Direction.new('A') }
+      it 'raises an error' do
+        expect{ subject }.to raise_error("Invalid cardinal point")
+      end
+    end
+  end
+
   describe '#west?' do
     it { expect(Direction.new('W')).to respond_to(:west?) }
     it { expect(Direction.new('W').west?).to be(true) }

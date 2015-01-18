@@ -2,6 +2,7 @@ class Position
   attr_accessor :x, :y, :direction
 
   def initialize(opts)
+    raise "Coordinates not valid" unless opts[0].is_a?(Integer) && opts[1].is_a?(Integer)
     @x = opts[0]
     @y = opts[1]
     if opts[2]

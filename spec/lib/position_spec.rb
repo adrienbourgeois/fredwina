@@ -3,6 +3,29 @@ require_relative '../../config'
 RSpec.describe 'Position' do
   subject { Position.new([1,2,'N']) }
 
+  describe 'initialization' do
+    context 'with coord that are not of integer type' do
+      subject { Position.new([:a,:b,'N']) }
+      it 'raises an error' do
+        expect{ subject }.to raise_error("Coordinates not valid")
+      end
+    end
+
+    context 'with an invalid cardinal point' do
+      subject { Position.new([1,2,'A']) }
+      it 'raises an error' do
+        expect{ subject }.to raise_error("Invalid cardinal point")
+      end
+    end
+
+    context 'without a cardinal point' do
+      subject { Position.new([1,2]) }
+      it 'does not raise an error' do
+        expect{ subject }.to_not raise_error
+      end
+    end
+  end
+
   describe '#x' do
     it { expect(subject.x).to eq(1) }
   end

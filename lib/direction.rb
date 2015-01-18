@@ -1,5 +1,6 @@
 class Direction
   def initialize(direction)
+    raise "Invalid cardinal point" unless ['N','E','S','W'].include?(direction)
     @direction = direction
   end
 
