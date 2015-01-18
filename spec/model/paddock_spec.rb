@@ -78,11 +78,11 @@ RSpec.describe 'paddock' do
     it { expect(subject).to respond_to(:free?) }
 
     context 'there is no dog at that position' do
-      it { expect(subject.free?([2,2])).to eq(true) }
+      it { expect(subject.free?(Position.new(2,2))).to eq(true) }
     end
 
     context 'there is a dog at that position' do
-      it { expect(subject.free?([1,1])).to eq(false) }
+      it { expect(subject.free?(Position.new(1,1))).to eq(false) }
     end
   end
 
@@ -92,11 +92,11 @@ RSpec.describe 'paddock' do
     it { expect(subject).to respond_to(:out_of_bound?) }
 
     context 'when coord is inside the paddock' do
-      it { expect(subject.out_of_bound?([2,2])).to eq(false) }
+      it { expect(subject.out_of_bound?(Position.new(2,2))).to eq(false) }
     end
 
     context 'when coord is outside the paddock' do
-      it { expect(subject.out_of_bound?([6,2])).to eq(true) }
+      it { expect(subject.out_of_bound?(Position.new(6,2))).to eq(true) }
     end
   end
 end

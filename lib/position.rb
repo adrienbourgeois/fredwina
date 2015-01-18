@@ -5,4 +5,8 @@ class Position
     @x = x
     @y = y
   end
+
+  def equal?(position)
+    @x == position.x && @y == position.y
+  end
 end

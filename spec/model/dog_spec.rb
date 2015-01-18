@@ -8,7 +8,7 @@ RSpec.describe 'dog' do
     it { expect(subject).to respond_to(:move) }
 
     it 'returns the coord the dog would have if it executes the motion' do
-      expect(subject.move).to eq([1,3])
+      expect(subject.move).to equal(Position.new(1,3))
     end
   end
 
@@ -20,8 +20,7 @@ RSpec.describe 'dog' do
 
     it 'moves the dog to his new position' do
       subject.move!(paddock)
-      expect(subject.x).to eq(1)
-      expect(subject.y).to eq(2)
+      expect(subject.position).to equal(Position.new(1,2))
     end
 
     context 'when the dog try to go outside the paddock' do

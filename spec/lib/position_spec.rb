@@ -18,4 +18,16 @@ RSpec.describe 'Position' do
   describe '#y=' do
     it { expect(subject).to respond_to(:y=) }
   end
+
+  describe '#equal?' do
+    context 'when the position have the same coords' do
+      let(:position2) { Position.new(1,2) }
+      it { expect(subject.equal?(position2)).to be(true) }
+    end
+
+    context 'otherwise' do
+      let(:position2) { Position.new(1,3) }
+      it { expect(subject.equal?(position2)).to be(false) }
+    end
+  end
 end

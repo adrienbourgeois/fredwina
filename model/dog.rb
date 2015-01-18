@@ -1,10 +1,9 @@
 class Dog
-  attr_reader :x,:y,:orientation
+  attr_reader :position,:orientation
 
-  def initialize(coords)
-    @x = coords[0]
-    @y = coords[1]
-    @orientation = coords[2]
+  def initialize(opts)
+    @position = Position.new(opts[0],opts[1])
+    @orientation = opts[2]
   end
 
   def turn(direction)
@@ -26,23 +25,21 @@ class Dog
   end
 
   def move
-    x = @x
-    y = @y
+    position = @position.clone
     case @orientation
-    when 'N' then y += 1
-    when 'S' then y -= 1
-    when 'E' then x += 1
-    when 'W' then x -= 1
+    when 'N' then position.y += 1
+    when 'S' then position.y -= 1
+    when 'E' then position.x += 1
+    when 'W' then position.x -= 1
     end
-    return [x,y]
+    return position
   end
 
   def move!(paddock)
-    new_coord = self.move
-    raise "Dogs have to stay inside of the paddock" if paddock.out_of_bound?(new_coord)
-    raise "Dogs cannot bump into each other" unless paddock.free?(new_coord)
-    @x = new_coord[0]
-    @y = new_coord[1]
+    future_position = self.move
+    raise "Dogs have to stay inside of the paddock" if paddock.out_of_bound?(future_position)
+    raise "Dogs cannot bump into each other" unless paddock.free?(future_position)
+    @position = future_position
   end
 
   def execute(paddock,order)
