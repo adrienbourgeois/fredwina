@@ -1,7 +1,7 @@
 require_relative '../../config'
 
 RSpec.describe 'Position' do
-  subject { Position.new(1,2) }
+  subject { Position.new([1,2,'N']) }
 
   describe '#x' do
     it { expect(subject.x).to eq(1) }
@@ -21,23 +21,21 @@ RSpec.describe 'Position' do
 
   describe '#equal?' do
     context 'when the position have the same coords' do
-      let(:position2) { Position.new(1,2) }
+      let(:position2) { Position.new([1,2]) }
       it { expect(subject.equal?(position2)).to be(true) }
     end
 
     context 'otherwise' do
-      let(:position2) { Position.new(1,3) }
+      let(:position2) { Position.new([1,3]) }
       it { expect(subject.equal?(position2)).to be(false) }
     end
   end
 
   describe '#move' do
-    let(:direction) { Direction.new('N') }
-
     it { expect(subject).to respond_to(:move) }
 
     it 'changes the position according to the direction' do
-      subject.move(direction)
+      subject.move
       expect(subject.x).to eq(1)
       expect(subject.y).to eq(3)
     end

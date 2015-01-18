@@ -15,13 +15,7 @@ class Dog
   end
 
   def move
-    position = @position.clone
-    if @direction.north? then position.y += 1
-    elsif @direction.south? then position.y -= 1
-    elsif @direction.east? then position.x += 1
-    elsif @direction.west? then position.x -= 1
-    end
-    return position
+    return @position.clone.move(@direction)
   end
 
   def move!(paddock)
