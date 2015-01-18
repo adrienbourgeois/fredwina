@@ -35,6 +35,13 @@ Both unit testing and feature/integration testing have been implemented. To run 
 rake
 ```
 
+Continuous integration
+----------------------
+
+Even if it's not completely relevant to use continous integration for that kind of application, I've used travis-ci during the development.
+
+You can see the minimalistic configuation in .travis.yml
+
 Execution
 ---------
 
