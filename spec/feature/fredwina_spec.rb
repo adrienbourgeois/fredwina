@@ -9,15 +9,13 @@ RSpec.describe 'fredwina' do
 
   context "at least one dog tries to go outside the paddock" do
     it "returns an appropriate error message" do
-      pending
-      expect(Fredwina.move("#{ROOT}/spec/fixtures/input_example_error1.txt")).to eq("The dogs have to stay inside of the paddock")
+      expect(Fredwina.move("#{ROOT}/spec/fixtures/input_example_error1.txt")).to eq("Dogs have to stay inside of the paddock")
     end
   end
 
   context "at least one dog bump into another dog" do
     it "returns an appropriate error message" do
-      pending
-      expect(Fredwina.move("#{ROOT}/spec/fixtures/input_example_error2.txt")).to eq("The dogs cannot bump into each other")
+      expect(Fredwina.move("#{ROOT}/spec/fixtures/input_example_error2.txt")).to eq("Dogs cannot bump into each other")
     end
   end
 end

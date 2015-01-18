@@ -29,7 +29,7 @@ RSpec.describe 'dog' do
       let(:paddock) { Paddock.new([5,5],[subject]) }
 
       it 'raises an error' do
-        expect{ subject.move!(paddock) }.to raise_error("Dogs has to stay inside of the paddock")
+        expect{ subject.move!(paddock) }.to raise_error("Dogs have to stay inside of the paddock")
       end
     end
 

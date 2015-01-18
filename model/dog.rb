@@ -39,7 +39,7 @@ class Dog
 
   def move!(paddock)
     new_coord = self.move
-    raise "Dogs has to stay inside of the paddock" if paddock.out_of_bound?(new_coord)
+    raise "Dogs have to stay inside of the paddock" if paddock.out_of_bound?(new_coord)
     raise "Dogs cannot bump into each other" unless paddock.free?(new_coord)
     @x = new_coord[0]
     @y = new_coord[1]
