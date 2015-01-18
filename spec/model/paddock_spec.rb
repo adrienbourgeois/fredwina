@@ -64,6 +64,7 @@ RSpec.describe 'Paddock' do
 
     context 'when coord is outside the paddock' do
       it { expect(subject.out_of_bound?(Position.new([6,2]))).to eq(true) }
+      it { expect(subject.out_of_bound?(Position.new([-1,2]))).to eq(true) }
     end
   end
 end

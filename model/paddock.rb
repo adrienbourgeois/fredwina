@@ -24,7 +24,7 @@ class Paddock
   end
 
   def out_of_bound?(position)
-    return true if position > @paddock_coord
+    return true if position > @paddock_coord || Position.new([0,0]) > position
     return false
   end
 
