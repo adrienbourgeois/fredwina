@@ -19,7 +19,7 @@ class Paddock
   end
 
   def free?(position)
-    @dogs.each { |dog| return false if dog.position.equal?(position) }
+    @dogs.each { |dog| return false if dog.position == position }
     return true
   end
 
