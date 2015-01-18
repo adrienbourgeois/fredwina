@@ -44,4 +44,12 @@ RSpec.describe 'Direction' do
       expect(subject.south?).to be(true)
     end
   end
+
+  describe '#value' do
+    subject { Direction.new('W') }
+
+    it { expect(subject).to respond_to(:value) }
+
+    it { expect(subject.value).to eq('W') }
+  end
 end

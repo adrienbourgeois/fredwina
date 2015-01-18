@@ -1,36 +1,25 @@
 class Dog
-  attr_reader :position,:orientation
+  attr_reader :position,:direction
 
   def initialize(opts)
     @position = Position.new(opts[0],opts[1])
-    @orientation = opts[2]
+    @direction = Direction.new(opts[2])
   end
 
   def turn(direction)
     if direction == 'L'
-      case @orientation
-      when 'N' then @orientation = 'W'
-      when 'W' then @orientation = 'S'
-      when 'S' then @orientation = 'E'
-      when 'E' then @orientation = 'N'
-      end
+      @direction.left
     elsif direction == 'R'
-      case @orientation
-      when 'N' then @orientation = 'E'
-      when 'E' then @orientation = 'S'
-      when 'S' then @orientation = 'W'
-      when 'W' then @orientation = 'N'
-      end
+      @direction.right
     end
   end
 
   def move
     position = @position.clone
-    case @orientation
-    when 'N' then position.y += 1
-    when 'S' then position.y -= 1
-    when 'E' then position.x += 1
-    when 'W' then position.x -= 1
+    if @direction.north? then position.y += 1
+    elsif @direction.south? then position.y -= 1
+    elsif @direction.east? then position.x += 1
+    elsif @direction.west? then position.x -= 1
     end
     return position
   end

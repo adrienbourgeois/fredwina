@@ -49,17 +49,17 @@ RSpec.describe 'dog' do
 
     context 'turn to the left' do
       subject { Dog.new([1,2,'N']) }
-      it "changes the dog's orientation" do
+      it "changes the dog's direction" do
         subject.turn('L')
-        expect(subject.orientation).to eq('W')
+        expect(subject.direction.west?).to be(true)
       end
     end
 
-    context 'turn to the left' do
+    context 'turn to the right' do
       subject { Dog.new([1,2,'N']) }
-      it "changes the dog's orientation" do
+      it "changes the dog's direction" do
         subject.turn('R')
-        expect(subject.orientation).to eq('E')
+        expect(subject.direction.east?).to be(true)
       end
     end
   end

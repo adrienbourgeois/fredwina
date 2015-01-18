@@ -37,4 +37,8 @@ class Direction
     end
   end
 
+  def value
+    @direction
+  end
+
 end

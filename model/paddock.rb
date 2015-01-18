@@ -23,7 +23,7 @@ class Paddock
 
   def helicopter_view
     return @dogs.inject("") do |str,dog|
-      str + "#{dog.position.x} #{dog.position.y} #{dog.orientation}\n"
+      str + "#{dog.position.x} #{dog.position.y} #{dog.direction.value}\n"
     end
   end
 
