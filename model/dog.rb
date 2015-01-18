@@ -2,20 +2,19 @@ class Dog
   attr_reader :position,:direction
 
   def initialize(opts)
-    @position = Position.new(opts[0],opts[1])
-    @direction = Direction.new(opts[2])
+    @position = Position.new(opts)
   end
 
   def turn(direction)
     if direction == 'L'
-      @direction.left
+      @position.direction.left
     elsif direction == 'R'
-      @direction.right
+      @position.direction.right
     end
   end
 
   def move
-    return @position.clone.move(@direction)
+    return @position.clone.move
   end
 
   def move!(paddock)

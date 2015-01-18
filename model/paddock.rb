@@ -1,6 +1,6 @@
 class Paddock
   def initialize(paddock_coord,dogs)
-    @paddock_coord = Position.new(paddock_coord[0],paddock_coord[1])
+    @paddock_coord = Position.new(paddock_coord)
     @dogs = []
     dogs.each do |dog|
       raise "Dogs initial position have to be inside the paddock" if self.out_of_bound?(dog.position)
@@ -23,7 +23,7 @@ class Paddock
 
   def helicopter_view
     return @dogs.inject("") do |str,dog|
-      str + "#{dog.position.x} #{dog.position.y} #{dog.direction.value}\n"
+      str + "#{dog.position.x} #{dog.position.y} #{dog.position.direction.value}\n"
     end
   end
 
