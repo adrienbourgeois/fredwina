@@ -5,7 +5,7 @@ class Shepherd
 
   def give_order_to(dog_id,order)
     raise "Dog with id #{dog_id} does not exist" unless dog = @paddock.dogs[dog_id]
-    dog.execute(self,order)
+    dog.execute(@paddock,order)
   end
 
   def execute_orders(orders)

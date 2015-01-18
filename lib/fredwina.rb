@@ -4,7 +4,8 @@ module Fredwina
     parser = Parser.new(f)
     begin
       paddock = Paddock.new(parser.paddock_coord,parser.dogs)
-      paddock.execute_orders(parser.orders)
+      shepherd = Shepherd.new(paddock)
+      shepherd.execute_orders(parser.orders)
     rescue Exception => e
       return e.message
     end
