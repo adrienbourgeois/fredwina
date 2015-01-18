@@ -1,4 +1,6 @@
 module Fredwina
+  # file_name is the address of the file containing the coords of the top right of the paddock
+  # plus the dogs instructions
   def Fredwina.move(file_name)
     f = File.open(file_name)
     parser = Parser.new(f)

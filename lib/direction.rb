@@ -1,4 +1,6 @@
 class Direction
+  # Intialization:
+  # direction has to be a valid cardinal point
   def initialize(direction)
     raise "Invalid cardinal point" unless ['N','E','S','W'].include?(direction)
     @direction = direction
@@ -20,6 +22,7 @@ class Direction
     @direction == 'S'
   end
 
+  # Turn to the left and change the state of direction accordingly
   def left
     case @direction
     when 'W' then @direction = 'S'
@@ -29,6 +32,7 @@ class Direction
     end
   end
 
+  # Turn to the right and change the state of direction accordingly
   def right
     case @direction
     when 'W' then @direction = 'N'
@@ -38,6 +42,7 @@ class Direction
     end
   end
 
+  # Return the current direction
   def value
     @direction
   end

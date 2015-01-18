@@ -11,18 +11,20 @@ class Paddock
     end
   end
 
-
+  # Returns the position (with the direction) of each dog
   def helicopter_view
     return @dogs.inject("") do |str,dog|
       str + "#{dog.position.x} #{dog.position.y} #{dog.position.direction.value}\n"
     end
   end
 
+  # return true if there is no dog at that position
   def free?(position)
     @dogs.each { |dog| return false if dog.position == position }
     return true
   end
 
+  # return true if that position is outside the paddock
   def out_of_bound?(position)
     return true if position > @paddock_coord || Position.new([0,0]) > position
     return false

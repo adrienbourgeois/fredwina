@@ -1,6 +1,8 @@
 class Parser
   attr_reader :paddock, :dogs, :orders
 
+  # Parse file and create accordingly a paddock, the list of the dogs and the
+  # list of the dogs instructions
   def initialize(file)
     @dogs = []
     str = file
