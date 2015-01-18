@@ -1,6 +1,6 @@
 require_relative '../../config'
 
-RSpec.describe 'paddock' do
+RSpec.describe 'Paddock' do
   describe 'initialization' do
     subject { Paddock }
 
@@ -20,42 +20,9 @@ RSpec.describe 'paddock' do
     end
   end
 
-  describe '#give_order_to' do
-    let(:dog) { Dog.new([1,1,'N']) }
-    subject { Paddock.new([5,5],[dog]) }
-
-    it { expect(subject).to respond_to(:give_order_to) }
-
-    context 'when the dogs does not exist' do
-      it 'raises an exception' do
-      end
-    end
-
-    context 'when the dog exist' do
-      it 'calls execute on the dog' do
-        expect(dog).to receive(:execute).with(subject,'M')
-        subject.give_order_to(0,'M')
-      end
-    end
-  end
-
-  describe '#execute_orders' do
-    let(:dog1) { Dog.new([1,1,'N']) }
-    let(:dog2) { Dog.new([4,4,'W']) }
-    let(:orders) do
-      [
-        ['M','M']
-      ]
-    end
-    subject { Paddock.new([5,5],[dog1,dog2]) }
-
-    it { expect(subject).to respond_to(:execute_orders) }
-
-    it 'gives the orders to the dogs' do
-      expect(subject).to receive(:give_order_to).with(0,'M')
-      expect(subject).to receive(:give_order_to).with(1,'M')
-      subject.execute_orders(orders)
-    end
+  describe '#dogs' do
+    subject { Paddock.new([5,5],[]) }
+    it { expect(subject).to respond_to(:dogs) }
   end
 
   describe '#helicopter_view' do

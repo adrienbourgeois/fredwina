@@ -6,6 +6,7 @@ require 'lib/position.rb'
 require 'lib/direction.rb'
 require 'model/dog.rb'
 require 'model/paddock.rb'
+require 'model/shepherd.rb'
 require 'pry'
 
 ROOT = FileUtils.pwd
