@@ -7,7 +7,6 @@ class Paddock
       raise "Dogs cannot have the same initial position" unless self.free?(dog.position)
       @dogs << dog 
     end
-    @dogs = dogs
   end
 
   def give_order_to(dog_id,order)
@@ -23,17 +22,13 @@ class Paddock
   end
 
   def helicopter_view
-    str = ""
-    @dogs.each do |dog|
-      str += "#{dog.position.x} #{dog.position.y} #{dog.orientation}\n"
+    return @dogs.inject("") do |str,dog|
+      str + "#{dog.position.x} #{dog.position.y} #{dog.orientation}\n"
     end
-    return str
   end
 
   def free?(position)
-    @dogs.each do |dog|
-      return false if dog.position.equal?(position)
-    end
+    @dogs.each { |dog| return false if dog.position.equal?(position) }
     return true
   end
 
