@@ -3,7 +3,7 @@ module Fredwina
     f = File.open(file_name)
     parser = Parser.new(f)
     begin
-      paddock = Paddock.new(parser.paddock_coord,parser.dogs)
+      paddock = parser.paddock
       shepherd = Shepherd.new(paddock)
       shepherd.execute_orders(parser.orders)
     rescue Exception => e
