@@ -1,7 +1,7 @@
 require_relative '../../config'
 
 RSpec.describe 'fredwina' do
-  context "dogs stay inside the paddock and don't bump into each other" do
+  context "dogs stay inside the paddock and don't bump into each other",focus:true do
     it "returns the final positions of the dogs" do
       expect(Fredwina.move("#{ROOT}/spec/fixtures/input_example_success.txt")).to eq("1 3 N\n5 1 E\n")
     end

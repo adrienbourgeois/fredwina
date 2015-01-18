@@ -2,7 +2,7 @@ require_relative '../../config'
 
 RSpec.describe 'dog' do
 
-  describe 'move',focus:true do
+  describe 'move' do
     subject { Dog.new([1,2,'N']) }
 
     it { expect(subject).to respond_to(:move) }
@@ -75,10 +75,16 @@ RSpec.describe 'dog' do
       end
     end
 
-    context 'otherwise' do
+    context 'with L or R' do
       it 'calls turn' do
         expect(subject).to receive(:turn).with('L')
         subject.execute(paddock,'L')
+      end
+    end
+
+    context 'otherwise' do
+      it 'raises an error' do
+        expect{ subject.execute(paddock,'A') }.to raise_error("Invalid order")
       end
     end
   end

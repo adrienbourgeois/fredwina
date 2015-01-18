@@ -26,7 +26,8 @@ class Dog
 
   def execute(paddock,order)
     if order == 'M' then self.move!(paddock)
-    else self.turn(order)
+    elsif ['L','R'].include?(order) then self.turn(order)
+    elsif order then raise "Invalid order"
     end
   end
 

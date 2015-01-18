@@ -4,7 +4,7 @@ RSpec.describe 'parser' do
   subject { Parser.new(File.open("#{ROOT}/spec/fixtures/input_example_4dogs.txt")) }
   context 'with a valid file' do
     describe 'creation' do
-      it "creates dogs with the right params",focus:true do
+      it "creates dogs with the right params" do
         expect(Dog).to receive(:new).with([1,2,'N']).and_call_original
         expect(Dog).to receive(:new).with([3,3,'E']).and_call_original
         expect(Dog).to receive(:new).with([5,5,'E']).and_call_original
