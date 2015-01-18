@@ -1,5 +1,5 @@
 class Parser
-  attr_reader :paddock_coord, :dogs, :orders
+  attr_reader :paddock, :dogs, :orders
 
   def initialize(file)
     @dogs = []
@@ -8,7 +8,7 @@ class Parser
 
     # Coord
     coords = lines[0].split(" ")
-    @paddock_coord = [coords[0].to_i,coords[1].to_i]
+    paddock_coord = [coords[0].to_i,coords[1].to_i]
 
     # Dogs and orders
     lines[1..-1].each_with_index do |line,index|
@@ -30,5 +30,8 @@ class Parser
         end
       end
     end
+
+    # Paddock
+    @paddock = Paddock.new(paddock_coord,@dogs)
   end
 end

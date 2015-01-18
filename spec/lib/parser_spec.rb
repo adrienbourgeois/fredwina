@@ -4,18 +4,18 @@ RSpec.describe 'parser' do
   subject { Parser.new(File.open("#{ROOT}/spec/fixtures/input_example_4dogs.txt")) }
   context 'with a valid file' do
     describe 'creation' do
-      it "creates dogs with the right params" do
-        expect(Dog).to receive(:new).with([1,2,'N'])
-        expect(Dog).to receive(:new).with([3,3,'E'])
-        expect(Dog).to receive(:new).with([5,5,'E'])
-        expect(Dog).to receive(:new).with([4,4,'E'])
+      it "creates dogs with the right params",focus:true do
+        expect(Dog).to receive(:new).with([1,2,'N']).and_call_original
+        expect(Dog).to receive(:new).with([3,3,'E']).and_call_original
+        expect(Dog).to receive(:new).with([5,5,'E']).and_call_original
+        expect(Dog).to receive(:new).with([4,4,'E']).and_call_original
         subject
       end
     end
 
     describe '#paddock_coord' do
-      it { expect(subject).to respond_to(:paddock_coord) }
-      it { expect(subject.paddock_coord).to eq([5,5]) }
+      it { expect(subject).to respond_to(:paddock) }
+      it { expect(subject.paddock).to be_a(Paddock) }
     end
 
     describe '#dogs' do
