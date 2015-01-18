@@ -1,5 +1,5 @@
 class Dog
-  attr_reader :position,:direction
+  attr_reader :position
 
   def initialize(opts)
     @position = Position.new(opts)
