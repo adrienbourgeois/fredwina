@@ -31,4 +31,9 @@ class Paddock
     return true
   end
 
+  def out_of_bound?(coord)
+    return true if @paddock_coord[0] < coord[0] || @paddock_coord[1] < coord[1]
+    return false
+  end
+
 end
